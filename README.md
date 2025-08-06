@@ -103,6 +103,6 @@ The goal of this project was to:
 11. **Restart Nginx:*
     ```bash
     sudo service nginx restart
-### 3. Conclusion
+## Conclusion
 
    
