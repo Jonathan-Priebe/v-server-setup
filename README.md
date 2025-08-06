@@ -11,8 +11,7 @@ The project involved setting up and securing a virtual server (V-Server) and hos
 3. [Steps and Implementation](#steps-and-implementation)
     - [1. SSH Key Authentication Setup](#1-ssh-key-authentication-setup)
     - [2. Nginx Installation and Alternative Website Hosting](#2-nginx-installation-and-alternative-website-hosting)
-4. [Security Considerations](#security-considerations)
-5. [Conclusion](#conclusion)
+4. [Conclusion](#conclusion)
 
 ---
 
@@ -40,6 +39,70 @@ The goal of this project was to:
 2. **Copy the public key to the server:**
    ```bash
    ssh-copy-id -i ed25519KEY.pub USER@159.69.106.42
-
+3. **Test SSH key login:**
+   ```bash
+   ssh -i ./SSHKEY USER@159.69.106.42
+4. **Disable password authentication for increased security:**
+   ```bash
+   sudo nano /etc/ssh/sshd_config # Set PasswordAuthentication=no
+5. **Restart SSH service to apply changes:**
+   ```bash
+   sudo systemctl restart ssh.service
+6. **Verify that password login is disabled:**
+   ```bash
+   ssh -o PubKeyAuthentication=no -i ./SSHKEY USER@159.69.106.42 # Expected: authentication failure
 
 ### 2. Nginx Installation and Alternative Website Hosting
+1. **Update and upgrade the system:**
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+2. **Install Nginx:**
+   ```bash
+   sudo apt install nginx -y
+3. **Check Nginx status:**
+   ```bash
+   systemctl status nginx.service
+4. **Create a directory for the alternative website:**
+   ```bash
+   sudo mkdir /var/www/alternatives
+5. **Create the HTML file:**
+   ```bash
+   sudo touch /var/www/alternatives/alternate-index.html
+6. **Configure Nginx to serve the alternative site on port 8081:**
+   ```bash
+   sudo nano /etc/nginx/sites-enabled/alternatives
+7. **Config**
+   ```bash
+       server {
+        listen 8081;
+        listen [::]:8081;
+
+        root /var/www/alternatives;
+        index alternate-index.html;
+
+        location / {
+            try_files $uri $uri/ =404;
+        }
+    }
+8. **Edit the HTML content:**
+   ```bash
+   sudo nano /var/www/alternatives/alternate-index.html
+10. **Config**
+    ```bash
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello, Nginx!</title>
+    </head>
+    <body>
+        <h1>Hello, Nginx!</h1>
+        <p>I have just configured Nginx web server on Ubuntu server!</p>
+    </body>
+    </html>
+11. **Restart Nginx:*
+    ```bash
+    sudo service nginx restart
+### 3. Conclusion
+
+   
