@@ -37,3 +37,9 @@ The goal of this project was to:
 1. **Generate an SSH key pair (ED25519 format):**
    ```bash
    ssh-keygen -t ed25519
+2. **Copy the public key to the server:**
+   ```bash
+   ssh-copy-id -i ed25519KEY.pub USER@159.69.106.42
+
+
+### 2. Nginx Installation and Alternative Website Hosting
