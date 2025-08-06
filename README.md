@@ -104,5 +104,11 @@ The goal of this project was to:
     ```bash
     sudo service nginx restart
 ## Conclusion
+This project marks the starting point of my DevSecOps journey.
+I successfully:
+- Secured remote access to my server.
+- Installed and configured Nginx.
+- Deployed a simple alternative website on a custom port.
 
+This foundation will serve as the basis for more complex infrastructure and security projects in the future.
    
