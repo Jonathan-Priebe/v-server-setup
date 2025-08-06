@@ -3,6 +3,7 @@
 This repository documents my very first DevSecOps project, completed during my training with the Developer Akademie.  
 The project involved setting up and securing a virtual server (V-Server) and hosting a simple alternative website using **Nginx**.
 
+Video: https://www.loom.com/share/253d7f49fc734ba194b54f33ccf9abbe?sid=c0ad843c-0afc-4446-bf4f-9349e6cedfa3
 ---
 
 ## Table of Contents
