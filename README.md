@@ -4,6 +4,7 @@ This repository documents my very first DevSecOps project, completed during my t
 The project involved setting up and securing a virtual server (V-Server) and hosting a simple alternative website using **Nginx**.
 
 Video: https://www.loom.com/share/253d7f49fc734ba194b54f33ccf9abbe?sid=c0ad843c-0afc-4446-bf4f-9349e6cedfa3
+Video2: https://www.loom.com/share/9b36fadfe9d1417088cd80cf4e1a3fd3?sid=7eb4945c-9d0d-43a8-8893-89bf6e525446
 ---
 
 ## Table of Contents
@@ -25,7 +26,7 @@ The goal of this project was to:
 ---
 
 ## Server Information
-- **IP Address:** `159.69.106.42`
+- **IP Address:** `Hidden`
 - **Operating System:** Ubuntu Server
 - **Web Server:** Nginx
 
@@ -39,10 +40,10 @@ The goal of this project was to:
    ssh-keygen -t ed25519
 2. **Copy the public key to the server:**
    ```bash
-   ssh-copy-id -i ed25519KEY.pub USER@159.69.106.42
+   ssh-copy-id -i ed25519KEY.pub USER@IP-Address
 3. **Test SSH key login:**
    ```bash
-   ssh -i ./SSHKEY USER@159.69.106.42
+   ssh -i ./SSHKEY USER@IP-Address
 4. **Disable password authentication for increased security:**
    ```bash
    sudo nano /etc/ssh/sshd_config # Set PasswordAuthentication=no
@@ -51,7 +52,7 @@ The goal of this project was to:
    sudo systemctl restart ssh.service
 6. **Verify that password login is disabled:**
    ```bash
-   ssh -o PubKeyAuthentication=no -i ./SSHKEY USER@159.69.106.42 # Expected: authentication failure
+   ssh -o PubKeyAuthentication=no -i ./SSHKEY USER@IP-Address # Expected: authentication failure
 
 ### 2. Nginx Installation and Alternative Website Hosting
 1. **Update and upgrade the system:**
